@@ -7,4 +7,5 @@
 # Ignorar diretórios específicos
 node_modules/
 build/
+config/
 .env
