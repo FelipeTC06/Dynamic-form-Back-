@@ -9,20 +9,60 @@ createItem = async (req, res) => {
     }
 };
 
-getAllItems = (req, res) => {
-    res.send('List of all items');
+getAllItems = async (req, res) => {
+    try {
+        const items = await SimpleResponse.findAll();
+        res.status(200).send(items);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 };
 
-getItem = (req, res) => {
-    res.send(`Get item with id ${req.params.id}`);
+
+getItem = async (req, res) => {
+    try {
+        const item = await SimpleResponse.findByPk(req.params.id);
+        if (item) {
+            res.status(200).send(item);
+        } else {
+            res.status(404).send("Item not found");
+        }
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 };
 
-updateItem = (req, res) => {
-    res.send(`Update item with id ${req.params.id}`);
+
+updateItem = async (req, res) => {
+    try {
+        const updated = await SimpleResponse.update(req.body, {
+            where: { id: req.params.id }
+        });
+        if (updated[0] === 1) { // Verifica se o item foi atualizado
+            res.status(200).send("Item updated successfully");
+        } else {
+            res.status(404).send("Item not found");
+        }
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 };
 
-deleteItem = (req, res) => {
-    res.send(`Delete item with id ${req.params.id}`);
+
+deleteItem = async (req, res) => {
+    try {
+        const deleted = await SimpleResponse.destroy({
+            where: { id: req.params.id }
+        });
+        if (deleted) {
+            res.status(200).send("Item deleted successfully");
+        } else {
+            res.status(404).send("Item not found");
+        }
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 };
+
 
 module.exports = { createItem, getAllItems, getItem, updateItem, deleteItem };
