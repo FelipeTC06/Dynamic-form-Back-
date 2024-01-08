@@ -1,5 +1,12 @@
-createItem = (req, res) => {
-    res.send('Create a new item');
+const SimpleResponse = require('../models/userModel');
+
+createItem = async (req, res) => {
+    try {
+        const simpleResponse = await SimpleResponse.create(req.body);
+        res.status(201).send(simpleResponse);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
 };
 
 getAllItems = (req, res) => {
