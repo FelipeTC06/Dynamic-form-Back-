@@ -40,7 +40,7 @@ updateItem = async (req, res) => {
             where: { id: req.params.id }
         });
         if (updated[0] === 1) {
-            res.status(200).send(item);
+            res.status(200).send({ message: "Item updated successfully" });
         } else {
             res.status(404).send("Item not found");
         }
@@ -56,7 +56,7 @@ deleteItem = async (req, res) => {
             where: { id: req.params.id }
         });
         if (deleted) {
-            res.status(200).send("Item deleted successfully");
+            res.status(200).send({ message: "Item deleted successfully" });
         } else {
             res.status(404).send("Item not found");
         }
