@@ -35,11 +35,12 @@ getItem = async (req, res) => {
 
 updateItem = async (req, res) => {
     try {
-        const updated = await SimpleResponse.update(req.body, {
+        const item = req.body;
+        const updated = await SimpleResponse.update(item, {
             where: { id: req.params.id }
         });
-        if (updated[0] === 1) { // Verifica se o item foi atualizado
-            res.status(200).send("Item updated successfully");
+        if (updated[0] === 1) {
+            res.status(200).send(item);
         } else {
             res.status(404).send("Item not found");
         }
