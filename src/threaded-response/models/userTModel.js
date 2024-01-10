@@ -2,33 +2,33 @@ const Sequelize = require('sequelize');
 const sequelize = require('../../../database/db.config');
 
 const ThreadedResponse = sequelize.define('threaded_response', {
-    firstName: {
+    per_firstName: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    lastName: {
+    per_lastName: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    gender: {
+    per_gender: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    likeSports: {
+    per_likeSports: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
     },
-    favSport: {
+    per_favSport: {
         type: Sequelize.STRING
     },
-    isEmployed: {
+    wor_isEmployed: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
     },
-    companyName: {
+    wor_companyName: {
         type: Sequelize.STRING
     },
-    happyPosition: {
+    wor_happyPosition: {
         type: Sequelize.STRING
     }
 }, {
