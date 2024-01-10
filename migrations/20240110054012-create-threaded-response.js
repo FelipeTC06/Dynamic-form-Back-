@@ -9,35 +9,35 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstName: {
+      per_firstName: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      lastName: {
+      per_lastName: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      gender: {
+      per_gender: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      likeSports: {
+      per_likeSports: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      favSport: {
+      per_favSport: {
         type: Sequelize.STRING,
         allowNull: true 
       },
-      isEmployed: {
+      wor_isEmployed: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      companyName: {
+      wor_companyName: {
         type: Sequelize.STRING,
         allowNull: true 
       },
-      happyPosition: {
+      wor_happyPosition: {
         type: Sequelize.STRING,
         allowNull: true 
       },
