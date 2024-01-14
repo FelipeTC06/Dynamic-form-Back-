@@ -5,9 +5,9 @@ function formatResponse(data) {
 
     Object.keys(data).forEach(key => {
         if (key.startsWith('per_')) {
-            personalInfo[key.replace('per_', '')] = data[key];
+            personalInfo[key] = data[key];
         } else if (key.startsWith('wor_')) {
-            workInfo[key.replace('wor_', '')] = data[key];
+            workInfo[key] = data[key];
         }
     });
 
