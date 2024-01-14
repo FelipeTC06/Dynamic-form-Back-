@@ -1,4 +1,5 @@
 function formatResponse(data) {
+    const id = data.id;
     const personalInfo = {};
     const workInfo = {};
 
@@ -10,7 +11,7 @@ function formatResponse(data) {
         }
     });
 
-    return { personalInfo, workInfo };
+    return { id, personalInfo, workInfo };
 }
 
 module.exports = formatResponse;
